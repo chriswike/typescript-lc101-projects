@@ -20,15 +20,16 @@ var daysToMars = hoursToMars / 24;
 // Part 4: Create a Spacecraft Class
 var Spacecraft = /** @class */ (function () {
     function Spacecraft(name, speedMph) {
+        var _this = this;
         this.milesPerKilometer = 0.621;
+        this.getDaysToLocation = function (kilometersAway) {
+            var milesAway = kilometersAway * _this.milesPerKilometer;
+            var hoursToLocation = milesAway / _this.speedMph;
+            return hoursToLocation / 24;
+        };
         this.name = name;
         this.speedMph = speedMph;
     }
-    Spacecraft.prototype.getDaysToLocation = function (kilometersAway) {
-        var milesAway = kilometersAway * milesPerKilometer;
-        var hoursToLocation = milesAway / speedMph;
-        return hoursToLocation / 24;
-    };
     Spacecraft.prototype.printDaysToLocation = function (location) {
         console.log("".concat(this.name, " would take ").concat(this.getDaysToLocation(location.kilometersAway), " days to get to ").concat(location.name, "."));
     };

@@ -34,9 +34,9 @@ class Spacecraft {
         this.speedMph = speedMph
     }
 
-    getDaysToLocation(kilometersAway: number): number {
-        let milesAway: number = kilometersAway * milesPerKilometer;
-        let hoursToLocation: number = milesAway / speedMph;
+    getDaysToLocation = (kilometersAway: number): number => {
+        let milesAway: number = kilometersAway * this.milesPerKilometer;
+        let hoursToLocation: number = milesAway / this.speedMph;
         return hoursToLocation / 24
     }
 
